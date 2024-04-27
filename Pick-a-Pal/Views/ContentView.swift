@@ -26,10 +26,21 @@ struct ContentView: View {
             .font(.title)
             .bold()
             
-            Text(pickedName.isEmpty ? "" : pickedName)
-                .font(.title2)
-                .bold()
-                .foregroundStyle(.tint)
+            HStack {
+                Text(pickedName.isEmpty ? "" : pickedName)
+                    .font(.title2)
+                    .bold()
+                    .foregroundStyle(.tint)
+                
+                if shouldRemovePickedName {
+                    Text("Removed")
+                        .font(.caption)
+                        .foregroundStyle(.red)
+                }
+                
+            }
+            
+            
             
             List {
                 ForEach(names, id: \.self) { name in
